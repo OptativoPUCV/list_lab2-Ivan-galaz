@@ -19,7 +19,8 @@ struct List {
 
 typedef List List;
 
-Node * createNode(const void * data) {
+Node * createNode(const void * data) 
+{
     Node * new = (Node *)malloc(sizeof(Node));
     assert(new != NULL);
     new->data = data;
@@ -38,7 +39,8 @@ List * createList()
   return list;
 } 
 
-void * firstList(List * list) {
+void * firstList(List * list) 
+{
   if (list == NULL ) return NULL;
   if (list->head == NULL) return NULL;
   list->current = list->head;
@@ -62,9 +64,11 @@ void * lastList(List * list)
   return (void*)list->current->data;
 }
 
-void * prevList(List * list) {
+void * prevList(List * list) 
+{
   if (list == NULL ) return NULL;
   if (list->current == NULL) return NULL;
+  if (list->head == NULL) return NULL; 
   if (list->current->prev == NULL ) return NULL;
   list->current = list->current->prev;
   return (void*)list->current->data;
