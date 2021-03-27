@@ -80,12 +80,11 @@ void pushFront(List * list, const void * data) {
     }else{
       node->next = list->head;
       list->head->prev = node;
+      list->head = node;
   }
-    list->head = node;
 }
   }
   
-
 void pushBack(List * list, const void * data) {
     list->current = list->tail;
     pushCurrent(list,data);
