@@ -28,7 +28,8 @@ Node * createNode(const void * data) {
     return new;
 }
 
-List * createList() {
+List * createList() 
+{
   List *list = (List*)malloc(sizeof(List));//reservamos memoria para la lista 
   list->head = NULL; 
   list->tail = NULL;
@@ -37,7 +38,8 @@ List * createList() {
   return list;
 } 
 
-void * firstList(List * list) {
+void * firstList(List * list) 
+{
   if (list == NULL ) return NULL;//si no encontramos una lista retornamos NULL
   if (list->head == NULL) return NULL; //si no hay dato en la cabeza retornamos NULL
 
@@ -45,7 +47,8 @@ void * firstList(List * list) {
   return (void*)list->current->data; //retornamos el primer nodo (head)
 }
 
-void * nextList(List * list) {
+void * nextList(List * list) 
+{
   if (list == NULL ) return NULL;//si no encontramos una lista retornamos NULL
   if (list->current == NULL) return NULL;
   if (list->current->next == NULL ) return NULL;
@@ -54,7 +57,8 @@ void * nextList(List * list) {
   return (void*)list->current->data;
 }
 
-void * lastList(List * list) {
+void * lastList(List * list)
+{
   if (list == NULL ) return NULL;//si no encontramos una lista retornamos NULL
   if (list->head == NULL) return NULL;
 
@@ -62,7 +66,8 @@ void * lastList(List * list) {
   return (void*)list->current->data;
 }
 
-void * prevList(List * list) {
+void * prevList(List * list) 
+{
   if (list == NULL ) return NULL;//si no encontramos una lista retornamos NULL
   if (list->head == NULL) return NULL; 
   if (list->current == NULL) return NULL;
@@ -72,29 +77,50 @@ void * prevList(List * list) {
   return (void*)list->current->data;
 }
 
-void pushFront(List * list, const void * data) {
+void pushFront(List * list, const void * data) 
+{
   if (list){//debe existir una lista para realizar esta función
     Node * node = createNode(data);
-    if (list->head == NULL){ //si no hay un dato en la cabeza
+    if (list->head == NULL)  //si no hay un dato en la cabeza
+    { 
       list->head = node;
       list->tail = node;
-    }else{                   //si hay un dato en la cabeza lo cambiamos por el node y
-      node->next = list->head;   //cambiamos los nodos a los que apunta
+    }else                    //si hay un dato en la cabeza lo cambiamos por el node y
+    {                        //cambiamos los nodos a los que apunta
+      node->next = list->head;   
       list->head->prev = node;
       list->head = node;
     }
   }
 }
   
-void pushBack(List * list, const void * data) {
+void pushBack(List * list, const void * data) 
+{
     list->current = list->tail;
     pushCurrent(list,data);
 }
 
-void pushCurrent(List * list, const void * data) {
-  //if (list){//debe existir una lista para realizar esta función
-  // Node * node = createNode(data);
-      
+void pushCurrent(List * list, const void * data) 
+{
+  /*if (list){//debe existir una lista para realizar esta función
+    Node * node = createNode(data);
+    if (list->head == NULL)       //si no hay un dato en la cabeza
+    { 
+      list->head = node;
+      list->tail = node;
+    }else{
+      if(list->current->next == NULL) //si nos encontramos en el último nodo
+      {
+        list->tail = node;
+        list->current->next=node;
+        list->current->next->prev = list->current;
+      }else {             //si el current está entre medio
+        node->next = list->current->next;
+        node->prev = list->current;
+        list->current->next = node;
+        list->current->next->prev = node;
+      }
+    }*/
 }
 
 void * popFront(List * list) {
