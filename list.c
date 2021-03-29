@@ -75,11 +75,10 @@ void * prevList(List * list) {
 void pushFront(List * list, const void * data) {
   if (list){//debe existir una lista para realizar esta función
     Node * node = createNode(data);
-    if (list->head == NULL){
-      list->head = node;
+    if (list->head == NULL){ //si no hay un dato en la cabeza
       list->tail = node;
-    }else{
-      node->next = list->head;
+    }else{                   //si hay un dato en la cabeza lo cambiamos por el node y
+      node->next = list->head;   //cambiamos los nodos a los que apunta
       list->head->prev = node;
       list->head = node;
     }
