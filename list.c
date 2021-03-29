@@ -103,7 +103,7 @@ void pushBack(List * list, const void * data)
 
 void pushCurrent(List * list, const void * data) 
 {
-  /*if (list){    //debe existir una lista para realizar esta función
+  if (list){    //debe existir una lista para realizar esta función
     Node * node = createNode(data);
     if (list->head == NULL)       //si no hay un dato en la cabeza
     { 
@@ -113,7 +113,7 @@ void pushCurrent(List * list, const void * data)
       if(list->current->next == NULL) //si nos encontramos en el último nodo
       {
         list->tail = node;
-        list->current->next=node;
+        list->current->next = node;
         list->current->next->prev = list->current;
       }else {             //si el current está entre medio
         node->next = list->current->next;
@@ -121,7 +121,8 @@ void pushCurrent(List * list, const void * data)
         list->current->next = node;
         list->current->next->prev = node;
       }
-    }*/
+    }
+} 
 }
 
 void * popFront(List * list) {
