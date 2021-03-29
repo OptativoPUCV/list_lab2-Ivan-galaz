@@ -79,7 +79,8 @@ void * prevList(List * list)
 
 void pushFront(List * list, const void * data) 
 {
-  if (list){//debe existir una lista para realizar esta función
+  if (list)     //debe existir una lista para realizar esta función
+  {
     Node * node = createNode(data);
     if (list->head == NULL)  //si no hay un dato en la cabeza
     { 
@@ -102,7 +103,7 @@ void pushBack(List * list, const void * data)
 
 void pushCurrent(List * list, const void * data) 
 {
-  /*if (list){//debe existir una lista para realizar esta función
+  /*if (list){    //debe existir una lista para realizar esta función
     Node * node = createNode(data);
     if (list->head == NULL)       //si no hay un dato en la cabeza
     { 
