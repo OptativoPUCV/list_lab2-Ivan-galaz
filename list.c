@@ -110,19 +110,19 @@ void pushCurrent(List * list, const void * data)
       list->head = node;
       list->tail = node;
     }else{
-      if(list->current->next == NULL) //si nos encontramos en el último nodo
+      if(list->current->next != NULL) //si el current está entre medio
       {
-        list->tail = node;
-        list->current->next = node;
-        list->current->next->prev = list->current;
-      }else {             //si el current está entre medio
         node->next = list->current->next;
         node->prev = list->current;
         list->current->next = node;
         list->current->next->prev = node;
+      }else {             //si nos encontramos en el último nodo
+        list->tail = node;
+        list->current->next = node;
+        list->current->next->prev = list->current;
       }
     }
-} 
+  } 
 }
 
 void * popFront(List * list) {
