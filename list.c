@@ -73,7 +73,7 @@ void * prevList(List * list) {
 }
 
 void pushFront(List * list, const void * data) {
-  if (list != NULL){//debe existir una lista para realizar esta función
+  if (list){//debe existir una lista para realizar esta función
     Node * node = createNode(data);
     if (list->head == NULL){
       list->head = node;
