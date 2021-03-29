@@ -92,7 +92,9 @@ void pushBack(List * list, const void * data) {
 }
 
 void pushCurrent(List * list, const void * data) {
-
+  //if (list){//debe existir una lista para realizar esta función
+  // Node * node = createNode(data);
+      
 }
 
 void * popFront(List * list) {
