@@ -141,7 +141,7 @@ void * popCurrent(List * list)
   if (list == NULL) return NULL;    //debe existir una lista para realizar esta función
   if (list->head == NULL) return NULL;
   if (list->current == NULL) return NULL;
-  void* data = (void*)list->current->data;
+  void* dato = (void*)list->current->data;
   if(list->current == list->head)   //si nos encontramos en la cabeza
   {
     if (list->head == list->tail)
@@ -171,7 +171,7 @@ void * popCurrent(List * list)
  
   list->current = list->current->next;
   free(list->current);
-  return data;
+  return dato;
 }
 
 void cleanList(List * list) {
