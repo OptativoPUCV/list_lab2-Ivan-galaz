@@ -155,10 +155,12 @@ void * popCurrent(List * list)
     }
   }else
   {
-    if (list->current == list->tail){  //si nos encontramos en la cola
-
+    if (list->current == list->tail) //si nos encontramos en la cola
+    {  
+      list->tail = list->tail->prev;
+      list->tail->next = NULL;
     }else{
-
+     
     }
   }
 
@@ -167,7 +169,8 @@ void * popCurrent(List * list)
 
 
   void* dato = (void*)list->current->data;
-  
+  list->current = list->current->next;
+  free(list->current);
   return dato;
 }
 
