@@ -168,10 +168,10 @@ void * popCurrent(List * list)
        }
     }
   }
-  void* dato = (void*)list->current->data;
+  void* data = (void*)list->current->data;
   list->current = list->current->next;
   free(list->current);
-  return dato;
+  return data;
 }
 
 void cleanList(List * list) {
