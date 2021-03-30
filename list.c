@@ -144,13 +144,21 @@ void * popCurrent(List * list)
 
   if(list->current == list->head)   //si nos encontramos en la cabeza
   {
-
+    if (list->head == list->tail)
+    {
+      list->head = NULL;
+      list->tail = NULL;
+    }else
+    {
+      list->head= list->head->next;
+      list->head->prev = NULL;
+    }
   }else
   {
     if (list->current == list->tail){  //si nos encontramos en la cola
 
     }else{
-      
+
     }
   }
 
