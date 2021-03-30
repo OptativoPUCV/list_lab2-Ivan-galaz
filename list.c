@@ -116,7 +116,8 @@ void pushCurrent(List * list, const void * data)
         node->prev = list->current;
         list->current->next = node;
         list->current->next->prev = node;
-      }else {             //si nos encontramos en el último nodo
+      }else 
+      {             //si nos encontramos en el último nodo
         list->tail = node;
         list->current->next = node;
         list->current->next->prev = list->current;
@@ -136,7 +137,16 @@ void * popBack(List * list) {
 }
 
 void * popCurrent(List * list) {
+  if (list == NULL) return NULL;    //debe existir una lista para realizar esta función
+  if (list->head == NULL) return NULL;
+  if (list->current == NULL) return NULL;
 
+
+
+
+
+
+  
     return NULL;
 }
 
