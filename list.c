@@ -136,18 +136,31 @@ void * popBack(List * list) {
     return popCurrent(list);
 }
 
-void * popCurrent(List * list) {
+void * popCurrent(List * list) 
+{
   if (list == NULL) return NULL;    //debe existir una lista para realizar esta función
   if (list->head == NULL) return NULL;
   if (list->current == NULL) return NULL;
 
+  if(list->current == list->head)   //si nos encontramos en la cabeza
+  {
+
+  }else
+  {
+    if (list->current == list->tail){  //si nos encontramos en la cola
+
+    }else{
+      
+    }
+  }
 
 
 
 
 
+  void* dato = (void*)list->current->data;
   
-    return NULL;
+  return dato;
 }
 
 void cleanList(List * list) {
