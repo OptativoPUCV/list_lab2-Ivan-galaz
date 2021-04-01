@@ -176,6 +176,7 @@ void * popCurrent(List * list)
     }
   }
   return aux;
+  free(aux);
 }
 
 void cleanList(List * list) {
