@@ -142,17 +142,18 @@ void * popCurrent(List * list)
   if (list->head == NULL) return NULL;
   if (list->current == NULL) return NULL;
 
-  void* aux;
+  void* dato;         //creamos una variable para guardar el dato que retornaremos
+
   if(list->current == list->head)   //si nos encontramos en la cabeza
   {
     if (list->head == list->tail)
     {
-      aux = (void*) list->current->data;
+      dato = (void*) list->current->data;
       list->head = NULL;
       list->tail = NULL;
     }else
     {
-      aux = (void*) list->current->data;
+      dato = (void*) list->current->data;
       list->head= list->head->next;
       list->head->prev = NULL;
     }
@@ -160,22 +161,21 @@ void * popCurrent(List * list)
   {
     if (list->current == list->tail) //si nos encontramos en la cola
     { 
-      aux = (void*) list->current->data;
+      dato = (void*) list->current->data;
       list->tail = list->tail->prev;
       list->tail->next = NULL;
     }else
     {
        if(list->current->next){
-        aux = (void*) list->current->data;
+        dato = (void*) list->current->data;
         list->current->next->prev = list->current->prev;
        }
        if(list->current->prev){
-        
         list->current->prev->next = list->current->next;
        }
     }
   }
-  return aux;
+  return dato;
 }
 
 void cleanList(List * list) {
