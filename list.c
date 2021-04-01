@@ -170,13 +170,12 @@ void * popCurrent(List * list)
         list->current->next->prev = list->current->prev;
        }
        if(list->current->prev!= NULL){
-        aux = (void*) list->current->data;
+
         list->current->prev->next = list->current->next;
        }
     }
   }
   return aux;
-  free(aux);
 }
 
 void cleanList(List * list) {
